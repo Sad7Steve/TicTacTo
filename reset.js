@@ -1,4 +1,4 @@
-import {score} from "gameLogic"
+import {score, resetGame} from "gameLogic"
 let resetButton = document.querySelector(".resetAllGame button");
 
 resetButton.onclick = function () {
