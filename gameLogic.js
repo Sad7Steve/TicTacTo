@@ -7,7 +7,7 @@ boxes.forEach(function (element){
 
 let player = "x";
 
-let score = {
+export let score = {
   "x" : 0,
   "o" : 0,
 }
@@ -120,6 +120,7 @@ function resetGame(time) {
       box.removeAttribute("data-player");
       box.classList.remove("selected");
     });
+    
   }, time);
 }
 
