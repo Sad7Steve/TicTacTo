@@ -106,7 +106,7 @@ function winner(player) {
   setTimeout( _ => alert(`The ${player} Win...`), 0);
 }
 
-function resetGame(time) {
+export function resetGame(time) {
   setTimeout(function () {
     player = "x";
     matrix = [
