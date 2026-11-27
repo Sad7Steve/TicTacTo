@@ -1,3 +1,4 @@
+let resetButton = document.querySelector(".resetAllGame button");
 let bord = document.querySelector(".bord");
 let boxes = Array.from(document.querySelectorAll(".bord td"));
 
@@ -7,7 +8,7 @@ boxes.forEach(function (element){
 
 let player = "x";
 
-export let score = {
+let score = {
   "x" : 0,
   "o" : 0,
 }
@@ -26,8 +27,6 @@ function gameManager(e) {
   draw(box, player);
   setPlayerOnBord(box, player); 
   
-  console.table(matrix);
-
   // check state of game
   let result = ticTacto(matrix, player);
 
@@ -42,7 +41,7 @@ function gameManager(e) {
     loadScore();
   }
 
-  if(result === "draw") {
+  if(result === "tie") {
     resetGame();
   }
 
@@ -91,7 +90,7 @@ function ticTacto(matrix, player) {
   else if(matrix[0][2] === matrix[1][1] && matrix[0][2] === matrix[2][0] && matrix[0][2] === player) {
     return player;
   } else if(matrix.flat(2).every(cell => cell !== "?")) {
-    return "draw";
+    return "tie";
   } else {
     return "?";
   }
@@ -106,7 +105,7 @@ function winner(player) {
   setTimeout( _ => alert(`The ${player} Win...`), 0);
 }
 
-export function resetGame(time) {
+function resetGame(time) {
   setTimeout(function () {
     player = "x";
     matrix = [
@@ -120,7 +119,6 @@ export function resetGame(time) {
       box.removeAttribute("data-player");
       box.classList.remove("selected");
     });
-    
   }, time);
 }
 
@@ -130,4 +128,14 @@ function loadScore() {
 
   playerOne.textContent = score["x"];
   playertwo.textContent = score["o"];
+}
+
+
+resetButton.onclick = function () {
+  resetGame(0);
+  score = {
+    "x": 0,
+    "o": 0
+  }
+  loadScore();
 }
