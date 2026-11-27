@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: blueviolet;
+  background-color: rgb(44, 100, 99);
 }
 
 .container {
@@ -35,10 +35,10 @@ body {
 }
 
 .bord td[data-player = "x"] {
-  color: lawngreen;
+  color: red;
 }
 .bord td[data-player = "o"] {
-  color: red
+  color: lawngreen;
 }
 
 .bord td:hover {
